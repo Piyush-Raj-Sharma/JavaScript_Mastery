@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: black; color: white;">
+    
+</body>
+
+<script>
+    // Create a new <div> element
+    const div = document.createElement('div');
+    console.log(div); // Logs the newly created <div> element
+
+    // Assign a class name "main" to the <div>
+    div.className = "main";
+
+    // Generate a random ID between 1 and 11 and assign it to the <div>
+    div.id = Math.round(Math.random() * 10 + 1);
+
+    // Set a custom attribute "title" with the value "Super Spider"
+    div.setAttribute("title", "Super Spider");
+
+    // Set background color of the <div> to red
+    div.style.backgroundColor = "red";
+
+    // Add padding of 12px to the <div>
+    div.style.padding = "12px";
+
+    // Create a text node with "Super Spider Man"
+    const addText = document.createTextNode("Super Spider Man");
+
+    // Append the text node inside the <div>
+    div.appendChild(addText);
+
+    // Append the <div> element to the <body> so it becomes visible on the page
+    document.body.appendChild(div);
+</script>
+
+</html>

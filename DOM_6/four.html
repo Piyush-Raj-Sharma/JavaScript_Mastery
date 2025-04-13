@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: black; color: white;">
+    <ul class="language">
+        <li>JavaScript</li> <!-- Initially, only JavaScript is present in the list -->
+    </ul>
+</body>
+
+<script>
+
+    // INSERT ELEMENT - Basic approach (not the best)
+    function addLanguage(langName){
+        const listItem = document.createElement('li') // Create a new <li> element
+        listItem.innerHTML = `${langName}` // Set its inner HTML (not the safest method)
+        document.querySelector('.language').appendChild(listItem) // Append it to the <ul> list
+    }
+
+    const array = ['Java', 'TypeScript', 'Python', 'SQL', 'CPP', 'Ruby']
+
+    // This loop adds each language from the array to the list using the addLanguage function
+    // for (let i = 0; i < array.length; i++) {
+    //     addLanguage(array[i])
+    // }
+
+    // INSERT ELEMENT - Optimized approach (better performance & security)
+    function addOptiLanguage(langName){
+        const listItem = document.createElement('li') // Create a new <li> element
+        listItem.appendChild(document.createTextNode(langName)) // Create text node (safer than innerHTML)
+        document.querySelector('.language').appendChild(listItem) // Append it to the <ul> list
+    }
+
+    // Loop through the array and add each language using the optimized function
+    for (let i = 0; i < array.length; i++) {
+        addOptiLanguage(array[i]);
+    }
+
+    // EDIT ELEMENT - Change the second language in the list
+    const secondLang = document.querySelector("li:nth-child(2)") // Select the second <li>
+    
+    // secondLang.innerHTML = "Mojo" // This would work, but it's not the best practice
+
+    const newLi = document.createElement('li') // Create a new <li> element
+    newLi.textContent = "Mojo" // Set its text content
+    secondLang.replaceWith(newLi) // Replace the second <li> with the new one
+
+    // EDIT ELEMENT - Change the fifth language in the list
+    const fifthLang = document.querySelector("li:nth-child(5)") // Select the fifth <li>
+
+    const updatedLi = document.createElement('li') // Create a new <li> element
+
+    // updatedLi.textContent = 'Java' // Alternative way to set text content
+    // fifthLang.replaceWith(updatedLi) // Replace the fifth <li> (commented out)
+
+    updatedLi.appendChild(document.createTextNode('Java')) // Add text to the new <li>
+    fifthLang.replaceWith(updatedLi) // Replace the fifth <li> with the new one
+
+    // EDIT ELEMENT - Replace the first language in the list
+    const firstLang = document.querySelector('li:first-child') // Select the first <li>
+    firstLang.outerHTML = '<li>Unreal Engine</li>' // Replace the entire element with a new <li>
+
+    // REMOVE ELEMENT - Remove the last language in the list
+    const lastLang = document.querySelector('li:last-child') // Select the last <li>
+    lastLang.remove(); // Remove it from the DOM
+
+</script>
+</html>

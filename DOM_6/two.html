@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>                       
+ 
+<body style="background: #000; color: white;"> <!-- Sets the background to black and text color to white -->
+    <div class="parent"> <!-- A parent div that contains multiple child elements -->
+        <div class="day">Monday</div> 
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thrusday</div> <!-- (Spelling mistake, should be "Thursday") -->
+    </div>
+</body>
+
+<script>
+    const parent = document.querySelector('.parent') // Selects the first element with class 'parent'
+    console.log(parent); // Logs the parent element (the div with class 'parent')
+    
+    console.log(parent.children); // Logs the HTMLCollection (array-like object) of all child elements inside 'parent'
+    
+    console.log(parent.children[1]); // Logs the second child of 'parent' (Tuesday)
+
+    // console.log(parent.children[1].innerHTML); // Uncommenting this will print "Tuesday"
+
+    // Iterates through all child elements inside 'parent' and logs their inner text
+    for (let i = 0; i < parent.children.length; i++) {
+        // console.log(parent.children[i].innerHTML); // Uncomment to print all day names
+    }
+    
+    parent.children[1].style.color = 'orange' // Changes the color of the second child (Tuesday) to orange
+
+    console.log(parent.firstElementChild); // Logs the first child element of 'parent' (Monday)
+    
+    console.log(parent.lastElementChild); // Logs the last child element of 'parent' (Thrusday)
+
+    const dayOne = document.querySelector('.day') // Selects the first element with class 'day' (Monday)
+    console.log(dayOne); // Logs the first '.day' element (Monday)
+    
+    console.log(dayOne.parentElement); // Logs the parent of 'dayOne' (which is 'parent')
+    
+    console.log(dayOne.nextElementSibling); // Logs the next sibling of 'dayOne' (Tuesday)
+</script>
+
+</html>
